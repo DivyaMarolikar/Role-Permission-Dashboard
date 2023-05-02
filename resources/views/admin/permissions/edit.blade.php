@@ -51,9 +51,9 @@
                         <form method="POST" action="{{ route('admin.permissions.roles', $permission->id) }}">
                             @csrf
                             <div class="sm:col-span-6">
-                                <label for="role" class="block text-sm font-medium text-gray-700">Roles</label>
-                                <select id="role" name="role" autocomplete="role-name"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <label for="select2Multiple" class="block text-sm font-medium text-gray-700">Roles</label>
+                                <select id="select2Multiple" name="role[]" multiple="multiple" autocomplete="role-name"
+                                    class="select2-multiple mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach

@@ -29,9 +29,9 @@
                         <form method="POST" action="{{ route('admin.users.roles', $user->id) }}">
                             @csrf
                             <div class="sm:col-span-6">
-                                <label for="role" class="block text-sm font-medium text-gray-700">Roles</label>
-                                <select id="role" name="role" autocomplete="role-name"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <label for="select3Multiple" class="block text-sm font-medium text-gray-700">Roles</label>
+                                <select id="select3Multiple" name="role[]" multiple="multiple" autocomplete="role-name"
+                                    class="select2-multiple mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>
                                     @endforeach
@@ -66,10 +66,10 @@
                         <form method="POST" action="{{ route('admin.users.permissions', $user->id) }}">
                             @csrf
                             <div class="sm:col-span-6">
-                                <label for="permission"
+                                <label for="select2Multiple"
                                     class="block text-sm font-medium text-gray-700">Permission</label>
-                                <select id="permission" name="permission" autocomplete="permission-name"
-                                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <select id="select2Multiple" name="permission[]" multiple="multiple" autocomplete="permission-name"
+                                    class="select2-multiple mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     @foreach ($permissions as $permission)
                                         <option value="{{ $permission->name }}">{{ $permission->name }}</option>
                                     @endforeach

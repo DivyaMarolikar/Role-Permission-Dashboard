@@ -47,10 +47,15 @@ class UserController extends Controller
 
     public function givePermission(Request $request, User $user)
     {
-        if ($user->hasPermissionTo($request->permission)) {
-            return back()->with('message', 'Permission exists.');
+        $permissions =  $request->permission;
+        foreach($permissions as $permission){
+            /*if ($user->hasPermissionTo($request->permission)) {
+                return back()->with('message', 'Permission exists.');
+            }*/
+            if(!$user->hasPermissionTo($permission)){
+                $user->givePermissionTo($permission);
+            }
         }
-        $user->givePermissionTo($request->permission);
         return back()->with('message', 'Permission added.');
     }
 
